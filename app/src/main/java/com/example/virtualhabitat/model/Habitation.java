@@ -4,17 +4,27 @@ import java.util.ArrayList;
 
 public class Habitation {
     private GestionnairePieces pieces;
-    private Piece pieceActuelle;
+    private String id;
 
-    public Habitation(GestionnairePieces gestionnaire, Piece piece){
+
+    public Habitation(String id, GestionnairePieces gestionnaire){
         pieces = gestionnaire;
-        pieceActuelle = piece;
+        this.id = id;
+    }
+
+    public Habitation(String name){
+        this.id = name;
+        pieces = new GestionnairePieces();
     }
 
     public void ajouterPiece(Piece... p){
         for(int i = 0; i < p.length; i++){
             pieces.ajouter(p[i]);
         }
+    }
+
+    public String getName(){
+        return id;
     }
 
     public ArrayList<Piece> getPieces(){
