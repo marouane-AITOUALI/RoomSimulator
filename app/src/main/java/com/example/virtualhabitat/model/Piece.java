@@ -8,18 +8,18 @@ import java.util.HashMap;
 public class Piece {
 
     private String id;
-    private ArrayList<Photo> photos;
+    private ArrayList<Mur> murs;
     public Piece(String id) {
         this.id = id;
-        photos = new ArrayList<>(4);
+        murs = new ArrayList<>(4);
     }
 
     public String getName(){
         return id;
     }
 
-    public void ajouterPhoto(Bitmap image){
-        photos.add(new Photo(image));
+    public void ajouterPhoto(Bitmap image, String dir){
+        murs.add(new Mur(image, dir));
     }
 
 

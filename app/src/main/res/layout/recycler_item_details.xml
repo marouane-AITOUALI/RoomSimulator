@@ -5,11 +5,106 @@
 
     <TextView
             android:text="@string/textview"
-            android:layout_width="68dp"
-            android:layout_marginRight="0dp"
+            android:layout_width="101dp"
             android:paddingRight="0dp"
             android:textSize="17dp"
-            android:layout_height="29dp" android:id="@+id/nameRoom"
+            android:layout_height="0dp" android:id="@+id/nameRoom"
             app:layout_constraintTop_toTopOf="parent" app:layout_constraintEnd_toEndOf="parent"
-            android:textAppearance="@style/TextAppearance.AppCompat.Medium"/>
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            app:layout_constraintStart_toStartOf="parent" app:layout_constraintHorizontal_bias="0.927"
+            android:layout_marginTop="16dp" android:background="#DA7373"/>
+    <TextView
+            android:text="The Editing Room"
+            android:layout_width="134dp"
+            android:layout_height="0dp" android:id="@+id/textView2"
+            app:layout_constraintTop_toTopOf="parent" app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/nameRoom" android:layout_marginTop="16dp"
+            app:layout_constraintHorizontal_bias="0.139" android:background="#DA7373"/>
+
+    <Button
+            android:text="Mur Ouest"
+            android:layout_width="125dp"
+            android:layout_height="125dp"
+            android:id="@+id/ajouterOuest"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginTop="300dp"
+            android:layout_marginStart="4dp"
+            android:backgroundTint="@android:color/transparent"
+            android:textColor="#9182D5"
+            app:layout_constraintEnd_toStartOf="@+id/imageViewEst" app:layout_constraintHorizontal_bias="0.0"
+            android:layout_marginLeft="4dp"/>
+    <ImageView
+            android:layout_width="125dp"
+            android:layout_height="125dp"
+            app:srcCompat="@drawable/house"
+            android:id="@+id/imageOuest"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginTop="300dp"
+            android:layout_marginStart="4dp" android:layout_marginLeft="4dp"/>
+    <Button
+            android:text="MUR NORD"
+            android:layout_width="125dp"
+            android:layout_height="125dp"
+            android:id="@+id/ajouterNord"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginTop="96dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:backgroundTint="@android:color/transparent"
+            android:textColor="#9182D5"
+            tools:ignore="TextContrastCheck"
+            app:layout_constraintHorizontal_bias="0.451" app:backgroundTint="#B63838"/>
+    <ImageView
+            android:layout_width="125dp"
+            android:layout_height="125dp"
+            app:srcCompat="@drawable/house"
+            android:id="@+id/imageNord"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="96dp"
+            app:layout_constraintHorizontal_bias="0.451"/>
+    <ImageView
+            android:layout_width="125dp"
+            android:layout_height="125dp"
+            app:srcCompat="@drawable/house"
+            android:id="@+id/imageSud"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.451" app:layout_constraintTop_toBottomOf="@+id/ajouterNord"
+            android:layout_marginTop="308dp"/>
+    <Button
+            android:text="Mur Sud"
+            android:layout_width="125dp"
+            android:layout_height="125dp"
+            android:id="@+id/ajouterSud"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:backgroundTint="@android:color/transparent"
+            android:textColor="#9182D5"
+            app:layout_constraintTop_toBottomOf="@+id/ajouterNord" android:layout_marginTop="308dp"
+            app:layout_constraintHorizontal_bias="0.451"/>
+    <ImageView
+            android:layout_width="125dp"
+            android:layout_height="125dp"
+            app:srcCompat="@drawable/house"
+            android:id="@+id/imageEst"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="300dp"
+            android:layout_marginEnd="20dp" android:layout_marginRight="20dp"/>
+    <Button
+            android:text="MUR EST"
+            android:layout_width="125dp"
+            android:layout_height="125dp"
+            android:id="@+id/ajouterEst"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginTop="300dp"
+            android:layout_marginEnd="16dp"
+            android:backgroundTint="@android:color/transparent"
+            android:textColor="#9182D5"
+            android:layout_marginRight="16dp"/>
 </androidx.constraintlayout.widget.ConstraintLayout>
