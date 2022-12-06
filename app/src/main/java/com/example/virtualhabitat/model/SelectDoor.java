@@ -12,7 +12,7 @@ public class SelectDoor extends View {
 
 
     private SurfaceView surfaceView;
-    private Paint p;
+    private Paint paint;
     private Rect rectangle;
 
     public SelectDoor(Context context, SurfaceView surfaceView, Rect rect) {
@@ -25,17 +25,18 @@ public class SelectDoor extends View {
 
 
     private void init() {
-        p = new Paint();
-        p.setStyle(Paint.Style.STROKE);
-        p.setAntiAlias(true);
-        p.setStrokeWidth(10);
-        p.setColor(Color.RED);
+        paint = new Paint();
+        paint.setStyle(Paint.Style.STROKE);
+        paint.setAntiAlias(true);
+        paint.setStrokeWidth(10);
+        paint.setColor(Color.RED);
     }
 
     @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
 
+        canvas.drawRect(rectangle, paint);
         surfaceView.getHolder().unlockCanvasAndPost(canvas);
 
 
