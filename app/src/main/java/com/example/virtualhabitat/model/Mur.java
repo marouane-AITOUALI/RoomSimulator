@@ -2,15 +2,12 @@ package com.example.virtualhabitat.model;
 
 import android.graphics.Bitmap;
 import android.widget.ImageView;
-import androidx.annotation.NonNull;
-import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 
-public class Mur implements Iterable<Access>{
+public class Mur {
 
-    private ArrayList<Access> acces = new ArrayList<>();;
+    private ArrayList<Acces> acces = new ArrayList<>();;
     private String direction;
     private Bitmap bitmap;
     private ImageView imageView;
@@ -30,7 +27,7 @@ public class Mur implements Iterable<Access>{
      * Modifie l'acces (porte)
      * @param acces Acces porte
      */
-    public void setAcces(ArrayList<Access> acces) {
+    public void setAcces(ArrayList<Acces> acces) {
         this.acces = acces;
     }
 
@@ -46,7 +43,7 @@ public class Mur implements Iterable<Access>{
         this.imageView = imageView;
     }
 
-    public ArrayList<Access> getAcces() {
+    public ArrayList<Acces> getAcces() {
         return acces;
     }
 
@@ -66,10 +63,5 @@ public class Mur implements Iterable<Access>{
         return imageView;
     }
 
-    @NonNull
-    @NotNull
-    @Override
-    public Iterator<Access> iterator() {
-        return acces.iterator();
-    }
+
 }
