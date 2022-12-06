@@ -16,4 +16,6 @@
     <string name="ajoutPorte">Add Door</string>
     <string name="imagePiece">Picture of the room</string>
     <string name="modeVisualisation">Visualization Mode</string>
+    <string name="flecheGauche">Left Arrow</string>
+    <string name="flecheDroite">Right Arrow</string>
 </resources>

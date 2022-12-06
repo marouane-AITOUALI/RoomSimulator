@@ -16,4 +16,6 @@
     <string name="ajoutPorte">Ajouter Porte</string>
     <string name="imagePiece">Image de la pièce</string>
     <string name="modeVisualisation">Mode Visualisation</string>
+    <string name="flecheGauche">Flèche Gauche</string>
+    <string name="flecheDroite">Flèche Droite</string>
 </resources>
