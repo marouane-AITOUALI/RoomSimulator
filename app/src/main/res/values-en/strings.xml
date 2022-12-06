@@ -15,4 +15,5 @@
     <string name="confirmAcces">Confirm</string>
     <string name="ajoutPorte">Add Door</string>
     <string name="imagePiece">Picture of the room</string>
+    <string name="modeVisualisation">Visualization Mode</string>
 </resources>

@@ -171,7 +171,7 @@ public class ItemModel extends AppCompatActivity {
             //String dir = extras.getString("direction");
 
             try{
-                FileOutputStream fos = openFileOutput(namePiece+directionPrisePhoto, MODE_APPEND);
+                FileOutputStream fos = openFileOutput(namePiece+directionPrisePhoto+".data", MODE_APPEND);
                 imageBitmap.compress(Bitmap.CompressFormat.PNG,100, fos);
                 switch(directionPrisePhoto){
                     case 1:
@@ -207,7 +207,7 @@ public class ItemModel extends AppCompatActivity {
 
 
 
-                fos.flush();
+                fos.flush();fos.close();
 
 
 

@@ -24,6 +24,9 @@
             android:theme="@style/Theme.VirtualHabitat"
             tools:targetApi="31">
         <activity
+                android:name=".ViewPieceActivity"
+                android:exported="false"/>
+        <activity
                 android:name=".DoorActivity"
                 android:exported="false"/>
         <activity
