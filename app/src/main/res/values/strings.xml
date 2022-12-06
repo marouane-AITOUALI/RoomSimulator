@@ -14,4 +14,5 @@
     <string name="save">Save</string>
     <string name="confirmAcces">Confirmer</string>
     <string name="ajoutPorte">Ajouter Porte </string>
+    <string name="imagePiece">Image de la pièce</string>
 </resources>
