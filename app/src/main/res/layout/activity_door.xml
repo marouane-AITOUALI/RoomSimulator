@@ -11,17 +11,24 @@
             android:layout_width="387dp"
             android:layout_height="398dp" app:srcCompat="@drawable/house" android:id="@+id/imageAcces"
             app:layout_constraintTop_toTopOf="parent" app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"/>
+            app:layout_constraintEnd_toEndOf="parent" android:contentDescription="@string/imagePiece"/>
     <SurfaceView
             android:layout_width="387dp"
             android:layout_height="398dp" android:id="@+id/surfaceView"
             app:layout_constraintStart_toStartOf="parent" app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="@+id/imageAcces"/>
+    <androidx.recyclerview.widget.RecyclerView
+            android:layout_width="310dp"
+            android:layout_marginTop="20dp"
+            android:layout_height="200dp"
+            android:id="@+id/pieces"
+            app:layout_constraintTop_toBottomOf="@+id/surfaceView"
+            app:layout_constraintStart_toStartOf="parent" app:layout_constraintEnd_toEndOf="parent"/>
     <Button
             android:text="@string/ajoutPorte"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" android:id="@+id/confirmAcces"
-            app:layout_constraintTop_toBottomOf="@+id/imageAcces" app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent" android:layout_marginTop="56dp"
-            app:layout_constraintHorizontal_bias="0.498"/>
+            android:layout_height="wrap_content" android:id="@+id/ajoutPorte"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/pieces" android:layout_marginTop="32dp"/>
 </androidx.constraintlayout.widget.ConstraintLayout>
