@@ -1,23 +1,21 @@
 package com.example.virtualhabitat.model;
 
 import android.content.Context;
-import android.graphics.Canvas;
-import android.graphics.Color;
-import android.graphics.Paint;
-import android.graphics.Rect;
+import android.graphics.*;
 import android.view.SurfaceView;
 import android.view.View;
 
-public class SelectDoor extends View {
+public class myCanvas extends View {
 
 
     private SurfaceView surfaceView;
     private Paint paint;
     private Rect rectangle;
 
-    public SelectDoor(Context context, SurfaceView surfaceView, Rect rect) {
+    public myCanvas(Context context, SurfaceView surfaceView, Rect rect) {
         super(context);
         rectangle = rect;
+        this.surfaceView = surfaceView;
         init();
 
     }
@@ -28,7 +26,7 @@ public class SelectDoor extends View {
         paint = new Paint();
         paint.setStyle(Paint.Style.STROKE);
         paint.setAntiAlias(true);
-        paint.setStrokeWidth(10);
+        paint.setStrokeWidth(20);
         paint.setColor(Color.RED);
     }
 
@@ -36,9 +34,11 @@ public class SelectDoor extends View {
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
 
+        canvas = surfaceView.getHolder().lockCanvas();
+        canvas.drawColor(0, PorterDuff.Mode.CLEAR);
         canvas.drawRect(rectangle, paint);
         surfaceView.getHolder().unlockCanvasAndPost(canvas);
-
-
     }
+
+
 }
