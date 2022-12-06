@@ -35,6 +35,47 @@ public class ViewPieceActivity extends AppCompatActivity {
         nomPiece = extras.getString("nomPiece");
 
         setImage();
+
+        right.setOnClickListener(view ->{
+            switch(dir){
+                case 1:
+                    image.setImageBitmap(getPiece(nomPiece).getMur("est").getBitmap());
+                    break;
+                case 2:
+                    image.setImageBitmap(getPiece(nomPiece).getMur("sud").getBitmap());
+                    break;
+                case 3:
+                    image.setImageBitmap(getPiece(nomPiece).getMur("ouest").getBitmap());
+                    break;
+                case 4:
+                    image.setImageBitmap(getPiece(nomPiece).getMur("nord").getBitmap());
+                    dir = 0;
+                    break;
+            }
+            dir++;
+
+
+        });
+
+        left.setOnClickListener(view ->{
+            switch(dir){
+                case 1:
+                    image.setImageBitmap(getPiece(nomPiece).getMur("ouest").getBitmap());
+                    dir = 5;
+                    break;
+                case 2:
+                    image.setImageBitmap(getPiece(nomPiece).getMur("nord").getBitmap());
+                    break;
+                case 3:
+                    image.setImageBitmap(getPiece(nomPiece).getMur("est").getBitmap());
+                    break;
+                case 4:
+                    image.setImageBitmap(getPiece(nomPiece).getMur("sud").getBitmap());
+                    break;
+            }
+            dir--;
+
+        });
     }
 
     private void setImage() {
@@ -53,6 +94,11 @@ public class ViewPieceActivity extends AppCompatActivity {
                 break;
         }
 
+        setAcces();
+
+    }
+
+    private void setAcces() {
     }
 
     public Piece getPiece(String name){
