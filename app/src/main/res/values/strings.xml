@@ -1,5 +1,17 @@
 <resources>
-    <string name="app_name">VirtualHabitat</string>
-    <string name="enter">Enter</string>
+    <string name="app_name" translatable="false">VirtualHabitat</string>
+    <string name="enter">Ajouter</string>
     <string name="textview">TextView</string>
+    <string name="murNord">MUR NORD</string>
+    <string name="murSud">MUR SUD</string>
+    <string name="murEst">MUR EST</string>
+    <string name="murOuest">MUR OUEST</string>
+    <string name="editRoom">The Editing Room</string>
+    <string name="quitter">Quitter</string>
+    <string name="editer">Éditer</string>
+    <string name="view">Visualisation</string>
+    <string name="hintNomPiece">Nom de la pièce</string>
+    <string name="save">Save</string>
+    <string name="confirmAcces">Confirmer</string>
+    <string name="ajoutPorte">Ajouter Porte </string>
 </resources>
