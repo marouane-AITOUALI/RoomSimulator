@@ -7,4 +7,10 @@
         android:layout_height="match_parent"
         tools:context=".ViewPieceActivity">
 
+    <ImageView
+            android:layout_width="380dp"
+            android:layout_marginTop="20dp"
+            android:layout_height="450dp" app:srcCompat="@drawable/house" android:id="@+id/imageView2"
+            app:layout_constraintTop_toTopOf="parent" app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" android:contentDescription="@string/imagePiece"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

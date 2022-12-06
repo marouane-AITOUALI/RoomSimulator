@@ -27,7 +27,9 @@ public class VisualisationActivity extends AppCompatActivity {
         recyclerView = findViewById(R.id.recyclerView);
         pieces = GestionnairePieces.getInstance().getPieces();
 
-        getInfos();
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        adapter = new MainAdapter(pieces);
+        recyclerView.setAdapter(adapter);
 
 
         recyclerView.addOnItemTouchListener(new RecyclerItemClickListener(this, recyclerView,
@@ -35,6 +37,8 @@ public class VisualisationActivity extends AppCompatActivity {
             @Override
             public void onItemClick(View view, int position) {
                 Intent intent = new Intent(VisualisationActivity.this, ViewPieceActivity.class);
+                intent.putExtra("nomPiece", pieces.get(position).getName());
+                startActivity(intent);
             }
 
             @Override
@@ -44,9 +48,5 @@ public class VisualisationActivity extends AppCompatActivity {
         }));
     }
 
-    private void getInfos() {
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        adapter = new MainAdapter(pieces);
-        recyclerView.setAdapter(adapter);
-    }
+
 }
