@@ -47,6 +47,9 @@ public class ItemModel extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.recycler_item_details);
 
+
+        // Liaison avec les composants dans xml file
+
         roomName = (TextView) findViewById(R.id.nameRoom);
 
         imageNord = findViewById(R.id.imageNord);
@@ -70,12 +73,10 @@ public class ItemModel extends AppCompatActivity {
 
 
 
-
+        // getting the room name from extras
         Bundle extras = getIntent().getExtras();
-        if(extras != null){
-            namePiece = extras.getString("pieceChoisie");
-            roomName.setText(namePiece);
-        }
+        namePiece = extras.getString("pieceChoisie");
+        roomName.setText(namePiece);
 
         pieces = GestionnairePieces.getInstance().getPieces();
 
@@ -86,7 +87,35 @@ public class ItemModel extends AppCompatActivity {
         currentPiece.getMur("est").setImageView(imageEst);
         currentPiece.getMur("ouest").setImageView(imageOuest);
 
+        // Réaffichage des images dans leur position en cas de sortie/retour vers la piece
+        Bitmap nord = currentPiece.getMur("nord").getBitmap();
+        Bitmap est = currentPiece.getMur("est").getBitmap();
+        Bitmap sud = currentPiece.getMur("sud").getBitmap();
+        Bitmap ouest = currentPiece.getMur("ouest").getBitmap();
 
+        // Verification si les bitmaps sont nuls
+        if(nord != null) {
+            currentPiece.getMur("nord").getImageView().setImageBitmap(nord);
+            imageNord.setImageBitmap(nord);
+
+        }
+        if(est != null){
+            currentPiece.getMur("est").getImageView().setImageBitmap(est);
+            imageEst.setImageBitmap(est);
+
+        }
+        if(currentPiece.getMur("sud").getBitmap() != null){
+            currentPiece.getMur("sud").getImageView().setImageBitmap(sud);
+            imageSud.setImageBitmap(sud);
+        }
+        if(ouest != null){
+            currentPiece.getMur("ouest").getImageView().setImageBitmap(ouest);
+            imageOuest.setImageBitmap(ouest);
+        }
+
+
+
+        // Listener sur bouton pour prendre la photo
 
          btnNord.setOnClickListener(view -> {
              Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
@@ -115,6 +144,9 @@ public class ItemModel extends AppCompatActivity {
             btnOuest.setText("");
             startActivityForResult(intent, 24);
         });
+
+
+        // Listener porte
 
         ajouterMurNord.setOnClickListener(view -> {
                 directionAjoutMur = 1;
@@ -158,6 +190,8 @@ public class ItemModel extends AppCompatActivity {
 
 
     }
+
+    // Stock l'image prise dans le cadre associé
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
@@ -219,6 +253,12 @@ public class ItemModel extends AppCompatActivity {
         }
     }
 
+
+    /**
+     * Retourne la piece dont le nom est passée en paramètre
+     * @param nom Nom de la pièce
+     * @return Pièce dont le nom est 'nom'
+     */
     public Piece currentPiece(String nom){
         for(int i=0; i < this.pieces.size(); i++){
             if(pieces.get(i).getName().equals(nom)){
@@ -227,6 +267,8 @@ public class ItemModel extends AppCompatActivity {
         }
         return null;
     }
+
+
 
     public void setDirection(int dir){
         this.directionPrisePhoto = dir;
