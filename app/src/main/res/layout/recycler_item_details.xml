@@ -66,7 +66,7 @@
             android:layout_height="128dp"
             android:id="@+id/ajouterNord"
             app:layout_constraintTop_toTopOf="parent"
-            android:layout_marginTop="96dp"
+            android:layout_marginTop="94dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             android:backgroundTint="@android:color/transparent"
@@ -81,7 +81,7 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginTop="96dp"
+            android:layout_marginTop="94dp"
             app:layout_constraintHorizontal_bias="0.493"/>
     <ImageView
             android:layout_width="122dp"

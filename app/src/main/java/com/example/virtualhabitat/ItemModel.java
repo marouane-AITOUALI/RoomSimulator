@@ -120,29 +120,39 @@ public class ItemModel extends AppCompatActivity {
          btnNord.setOnClickListener(view -> {
              Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
              directionPrisePhoto = 1;
-             btnNord.setText("");
-             startActivityForResult(intent, 24);
+             if(intent.resolveActivity(getPackageManager()) != null){
+                 btnNord.setText("");
+                 startActivityForResult(intent, 24);
+             }
         });
 
         btnSud.setOnClickListener(view -> {
             Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
             directionPrisePhoto = 3;
-            btnSud.setText("");
-            startActivityForResult(intent, 24);
+            if(intent.resolveActivity(getPackageManager()) != null){
+                btnSud.setText("");
+                startActivityForResult(intent, 24);
+            }
         });
 
         btnEst.setOnClickListener(view -> {
             Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
             directionPrisePhoto = 2;
-            btnEst.setText("");
-            startActivityForResult(intent, 24);
+            if(intent.resolveActivity(getPackageManager()) != null){
+                btnEst.setText("");
+                startActivityForResult(intent, 24);
+            }
+
         });
 
         btnOuest.setOnClickListener(view -> {
             Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
             directionPrisePhoto = 4;
-            btnOuest.setText("");
-            startActivityForResult(intent, 24);
+            if(intent.resolveActivity(getPackageManager()) != null){
+                btnOuest.setText("");
+                startActivityForResult(intent, 24);
+            }
+
         });
 
 
