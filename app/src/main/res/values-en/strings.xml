@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="enter">Add</string>
-    <string name="textview">TextView</string>
+    <string name="nomPiece">Room Name</string>
     <string name="murNord">NORTH WALL</string>
     <string name="murSud">SOUTH WALL</string>
     <string name="murEst">EAST WALL</string>
@@ -18,4 +18,5 @@
     <string name="modeVisualisation">Visualization Mode</string>
     <string name="flecheGauche">Left Arrow</string>
     <string name="flecheDroite">Right Arrow</string>
+    <string name="porte">Door</string>
 </resources>
