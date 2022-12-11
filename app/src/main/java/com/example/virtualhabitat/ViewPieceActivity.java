@@ -1,9 +1,13 @@
 package com.example.virtualhabitat;
 
+import android.graphics.Color;
+import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
+import com.example.virtualhabitat.model.Acces;
 import com.example.virtualhabitat.model.GestionnairePieces;
 import com.example.virtualhabitat.model.Piece;
 
@@ -16,6 +20,9 @@ public class ViewPieceActivity extends AppCompatActivity {
     private ImageView image;
     private String nomPiece;
 
+    private ArrayList<Button> buttonsMurs = new ArrayList<>();
+
+    // La direction par défaut
     private int dir = 1;
 
 
@@ -37,6 +44,7 @@ public class ViewPieceActivity extends AppCompatActivity {
         setImage();
 
         right.setOnClickListener(view ->{
+            removeAllAcces();
             switch(dir){
                 case 1:
                     image.setImageBitmap(getPiece(nomPiece).getMur("est").getBitmap());
@@ -53,11 +61,14 @@ public class ViewPieceActivity extends AppCompatActivity {
                     break;
             }
             dir++;
+            setAcces(nomPiece, dir);
 
 
         });
 
         left.setOnClickListener(view ->{
+            removeAllAcces();
+
             switch(dir){
                 case 1:
                     image.setImageBitmap(getPiece(nomPiece).getMur("ouest").getBitmap());
@@ -74,6 +85,7 @@ public class ViewPieceActivity extends AppCompatActivity {
                     break;
             }
             dir--;
+            setAcces(nomPiece, dir);
 
         });
     }
@@ -94,12 +106,66 @@ public class ViewPieceActivity extends AppCompatActivity {
                 break;
         }
 
-        setAcces();
+        setAcces(nomPiece,dir);
 
     }
 
-    private void setAcces() {
+    private void setAcces(String nomPiece, int dir)
+    {
+        ArrayList<Acces> accesMur = getPiece(nomPiece).getAcces(dir);
+        if(accesMur.size() != 0)
+        {
+            for(Acces acces: accesMur)
+            {
+
+                Button bouton = new Button(ViewPieceActivity.this.getApplicationContext());
+
+                ViewGroup.LayoutParams layoutParams = new ViewGroup.LayoutParams(
+                        ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
+                layoutParams.width = acces.getRect().width();
+                layoutParams.height = acces.getRect().height();
+                bouton.setLayoutParams(layoutParams);
+
+                bouton.setX(acces.getRect().left);
+                bouton.setY(acces.getRect().top);
+                bouton.setBackgroundColor(Color.BLUE);
+                bouton.setText(acces.getNextPiece());
+                bouton.setTextColor(Color.YELLOW);
+
+                bouton.setAlpha(0.1F);
+                bouton.setClickable(true);
+
+                buttonsMurs.add(bouton);
+                setListener(acces.getNextPiece());
+                ViewPieceActivity.this.addContentView(bouton, layoutParams);
+            }
+        }
     }
+
+    /**
+     * Pose des écouteurs sur les boutons
+     * @param nextPiece La pièce vers laquelle mène le bouton
+     */
+    private void setListener(String nextPiece) {
+        for(Button bouton: buttonsMurs){
+            bouton.setOnClickListener(e ->{
+                nomPiece = nextPiece;
+                dir = 1;
+                setImage();
+                removeAllAcces();
+                setAcces(nomPiece, dir);
+            });
+        }
+    }
+
+    public void removeAllAcces(){
+        for(Button b: buttonsMurs){
+            ((ViewGroup)b.getParent()).removeView(b);
+        }
+        buttonsMurs.clear();
+        buttonsMurs = new ArrayList<>();
+    }
+
 
     public Piece getPiece(String name){
         for(Piece p: pieces){

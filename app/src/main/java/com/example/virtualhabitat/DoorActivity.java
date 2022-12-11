@@ -30,7 +30,7 @@ public class DoorActivity extends AppCompatActivity {
     private String nextRoom;
     private SurfaceView surfaceview;
     private Rect rect;
-    private int lastITemSelected;
+    private int lastITemSelected=-1;
     private myCanvas canvas;
     private int dir;
     private MainAdapter adapter;
@@ -92,9 +92,12 @@ public class DoorActivity extends AppCompatActivity {
                     canvas = new myCanvas(DoorActivity.this, surfaceview, rect);
 
 
+
+
                     // settling rectangle on image
-                    DoorActivity.this.addContentView(canvas, new ViewGroup.LayoutParams(
-                            ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
+                    ViewGroup.LayoutParams layoutParams = new ViewGroup.LayoutParams(
+                            ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
+                    DoorActivity.this.addContentView(canvas, layoutParams);
 
                     // in case we want to change the zone of the rectangle
                     canvas.invalidate();
@@ -111,16 +114,16 @@ public class DoorActivity extends AppCompatActivity {
                 new RecyclerItemClickListener.OnItemClickListener() {
             @Override
             public void onItemClick(View view, int position) {
-                recyclerView.getChildAt(lastITemSelected).setBackgroundColor(Color.WHITE);
+
                 nextRoom = pieces.get(position).getName();
-                //Toast.makeText(DoorActivity.this, nextRoom, Toast.LENGTH_SHORT).show();
-                recyclerView.getChildAt(position).setBackgroundColor(Color.GREEN);
-                lastITemSelected = position;
+                Toast.makeText(DoorActivity.this, "La pièce "+nextRoom+" est choisie",
+                        Toast.LENGTH_SHORT).show();
+
             }
 
             @Override
             public void onLongItemClick(View view, int position) {
-                recyclerView.getChildAt(position).setBackgroundColor(Color.WHITE);
+
             }
         }));
 
@@ -150,7 +153,6 @@ public class DoorActivity extends AppCompatActivity {
                     switch(dir){
                         case 1:
                             getPiece(nomPiece).getMur("nord").getAcces().add(porte);
-
                             break;
                         case 2:
                             getPiece(nomPiece).getMur("est").getAcces().add(porte);

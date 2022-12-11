@@ -45,6 +45,25 @@ public class Piece {
         return null;
     }
 
+    public ArrayList<Acces> getAcces(int dir){
+        ArrayList<Acces> acces = null;
+        switch (dir){
+            case 1:
+                acces = getMur("nord").getAcces();
+                break;
+            case 2:
+                acces = getMur("est").getAcces();
+                break;
+            case 3:
+                acces = getMur("sud").getAcces();
+                break;
+            case 4:
+                acces = getMur("ouest").getAcces();
+                break;
+        }
+        return acces;
+    }
+
     public String getName(){
         return id;
     }
