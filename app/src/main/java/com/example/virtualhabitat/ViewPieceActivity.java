@@ -43,6 +43,9 @@ public class ViewPieceActivity extends AppCompatActivity {
 
         setImage();
 
+        /*
+         * Ecouteur pour changer la direction du mur choisie dans le sens horaire
+         */
         right.setOnClickListener(view ->{
             removeAllAcces();
             switch(dir){
@@ -66,6 +69,9 @@ public class ViewPieceActivity extends AppCompatActivity {
 
         });
 
+        /*
+        * Ecouteur pour changer la direction du mur choisie dans le sens antihoraire
+        */
         left.setOnClickListener(view ->{
             removeAllAcces();
 
@@ -90,6 +96,9 @@ public class ViewPieceActivity extends AppCompatActivity {
         });
     }
 
+    /**
+     * Affiche Le mur suivant la direction choisie
+     */
     private void setImage() {
         switch(dir){
             case 1:
@@ -111,9 +120,9 @@ public class ViewPieceActivity extends AppCompatActivity {
     }
 
     /**
-     *
-     * @param nomPiece
-     * @param dir
+     * Affiche les portes du mur de direction dir, dans la piece nomPiece
+     * @param nomPiece Nom de la pièce
+     * @param dir Direction de la pièce
      */
     private void setAcces(String nomPiece, int dir)
     {
