@@ -12,37 +12,38 @@ public class Mur {
     private Bitmap bitmap;
     private ImageView imageView;
 
+
+    /**
+     * Constructeur Mur
+     * @param dir Direction du mur
+     */
     public Mur(String dir){
         direction = dir;
         bitmap = null;
         imageView = null;
 
     }
-    public Mur(Bitmap image, String dir){
-        bitmap = image;
-        direction = dir;
-    }
 
     /**
-     * Modifie l'acces (porte)
-     * @param acces Acces porte
+     * Change l'image bitmap du mur
+     * @param bitmap La nouvelle image bitmap
      */
-    public void setAcces(ArrayList<Acces> acces) {
-        this.acces = acces;
-    }
-
-    public void setDirection(String direction) {
-        this.direction = direction;
-    }
-
     public void setBitmap(Bitmap bitmap) {
         this.bitmap = bitmap;
     }
 
+    /**
+     * Change l'imageView du mur
+     * @param imageView La nouvelle imageView du mur
+     */
     public void setImageView(ImageView imageView) {
         this.imageView = imageView;
     }
 
+    /**
+     * Retourne la liste des accès du mur
+     * @return Retourne la liste des accès du mur
+     */
     public ArrayList<Acces> getAcces() {
         return acces;
     }
@@ -55,10 +56,18 @@ public class Mur {
         return direction;
     }
 
+    /**
+     * Retourne l'image bitmap du mur
+     * @return Image bitmap du mur
+     */
     public Bitmap getBitmap() {
         return bitmap;
     }
 
+    /**
+     * Retourne l'imageView du mur
+     * @return Retourne l'imageView du mur
+     */
     public ImageView getImageView() {
         return imageView;
     }

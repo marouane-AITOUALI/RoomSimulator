@@ -82,6 +82,7 @@ public class ItemModel extends AppCompatActivity {
 
         currentPiece = currentPiece(namePiece);
 
+        // Affichage des images prises dans leur cadre (Cas de sortie temporaire de l'application)
         currentPiece.getMur("nord").setImageView(imageNord);
         currentPiece.getMur("sud").setImageView(imageSud);
         currentPiece.getMur("est").setImageView(imageEst);
@@ -115,7 +116,7 @@ public class ItemModel extends AppCompatActivity {
 
 
 
-        // Listener sur bouton pour prendre la photo
+        // Listener pour prendre la photo suivant une direction
 
          btnNord.setOnClickListener(view -> {
              Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
@@ -156,7 +157,7 @@ public class ItemModel extends AppCompatActivity {
         });
 
 
-        // Listener porte
+        // Listener pour l'activité d'ajout de portes
 
         ajouterMurNord.setOnClickListener(view -> {
                 directionAjoutMur = 1;
@@ -276,11 +277,5 @@ public class ItemModel extends AppCompatActivity {
             }
         }
         return null;
-    }
-
-
-
-    public void setDirection(int dir){
-        this.directionPrisePhoto = dir;
     }
 }

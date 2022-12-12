@@ -12,6 +12,12 @@ public class myCanvas extends View {
     private Paint paint;
     private Rect rectangle;
 
+    /**
+     * Constructeur de myCanvas
+     * @param context Le contexte
+     * @param surfaceView La surface view sur laquelle on va dessiner
+     * @param rect Le rectangle à dessiner
+     */
     public myCanvas(Context context, SurfaceView surfaceView, Rect rect) {
         super(context);
         rectangle = rect;
@@ -21,13 +27,15 @@ public class myCanvas extends View {
     }
 
 
-
+    /**
+     * Initialisation de paint et de ses attributs
+     */
     private void init() {
         paint = new Paint();
         paint.setStyle(Paint.Style.STROKE);
         paint.setAntiAlias(true);
-        paint.setStrokeWidth(20);
-        paint.setColor(Color.RED);
+        paint.setStrokeWidth(4);
+        paint.setColor(Color.BLUE);
     }
 
     @Override

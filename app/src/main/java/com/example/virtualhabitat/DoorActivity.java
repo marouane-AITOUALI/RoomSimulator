@@ -47,10 +47,11 @@ public class DoorActivity extends AppCompatActivity {
 
         Button addDoor = findViewById(R.id.ajoutPorte);
 
+        // Getting Room Name and the direction using intent extras
         Bundle extras = getIntent().getExtras();
         dir = extras.getInt("direction");
         nomPiece = extras.getString("nomPiece");
-        Log.i("direction", String.valueOf(dir));
+
 
         recyclerView = findViewById(R.id.pieces);
 
@@ -59,6 +60,7 @@ public class DoorActivity extends AppCompatActivity {
         surfaceview.setZOrderOnTop(true);
         surfaceview.getHolder().setFormat(PixelFormat.TRANSPARENT);
 
+        // Setting the image of the room depending on the direction of the Room
         switch(dir){
             case 1:
                 imageView.setImageBitmap(getPiece(nomPiece).getMur("nord").getBitmap());
@@ -74,6 +76,7 @@ public class DoorActivity extends AppCompatActivity {
                 break;
         }
 
+        // Ecouteur en cas de dessin d'un carré
         imageView.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View view, MotionEvent motionEvent) {
@@ -110,6 +113,10 @@ public class DoorActivity extends AppCompatActivity {
 
         getInfos();
 
+        /*
+        Ecouteurs sur les éléments de la recycler view afin de choisir la pièce vers
+        laquelle l'accès mène
+        */
         recyclerView.addOnItemTouchListener(new RecyclerItemClickListener(this, recyclerView,
                 new RecyclerItemClickListener.OnItemClickListener() {
             @Override
@@ -127,6 +134,11 @@ public class DoorActivity extends AppCompatActivity {
             }
         }));
 
+
+        /*
+        Ajout d'accès au modèle en cas de clique sur bouton AjouterPorte
+        Vérification des exceptions
+         */
         addDoor.setOnClickListener(view -> {
             /*if(imageView.getDrawable() == null){
                 Toast.makeText(this, "Insérer une image", Toast.LENGTH_SHORT).show();
@@ -172,12 +184,20 @@ public class DoorActivity extends AppCompatActivity {
         });
     }
 
+    /**
+     * Initialise la recycler View avec l'adapter
+     */
     private void getInfos() {
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         adapter = new MainAdapter(pieces);
         recyclerView.setAdapter(adapter);
     }
 
+    /**
+     * Retourne la pièce dont le nom est name
+     * @param name Nom de la pièce
+     * @return Retourne la pièce dont le nom est name
+     */
     public Piece getPiece(String name){
         for(Piece p: pieces){
             if (p.getName().equals(name)){

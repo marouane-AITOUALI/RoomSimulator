@@ -16,6 +16,11 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.ViewHolder> {
 
     private ArrayList<Piece> habitationsList;
 
+
+    /**
+     * Constructeur d'adaptateur de la recyclerView
+     * @param arr La liste des pièces
+     */
     public MainAdapter(ArrayList<Piece> arr){
         habitationsList = arr;
     }

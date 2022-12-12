@@ -124,8 +124,9 @@ public class ViewPieceActivity extends AppCompatActivity {
                         ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
                 layoutParams.width = acces.getRect().width();
                 layoutParams.height = acces.getRect().height();
-                bouton.setLayoutParams(layoutParams);
-
+                //bouton.setLayoutParams(layoutParams);
+                bouton.setWidth(layoutParams.width);
+                bouton.setHeight(layoutParams.height);
                 bouton.setX(acces.getRect().left);
                 bouton.setY(acces.getRect().top);
                 bouton.setBackgroundColor(Color.BLUE);

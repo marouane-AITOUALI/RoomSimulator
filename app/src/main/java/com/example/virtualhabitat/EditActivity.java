@@ -42,7 +42,7 @@ public class EditActivity extends AppCompatActivity {
 
         getInfos();
 
-
+        // Ecouteur pour la création d'une pièce
         valider.setOnClickListener(view -> {
 
             boolean nomExist = false;
@@ -69,11 +69,16 @@ public class EditActivity extends AppCompatActivity {
                         Toast.LENGTH_SHORT).show();
             }
         });
-        
+
+        // Save the model if case of exiting app
         save.setOnClickListener(view ->{
             saveData();
         });
 
+        /*
+        Ecouteurs sur les pièces de la recycler view afin de choisir la pièce qu'on
+        aimerait éditer
+        */
         nomsHabitations.addOnItemTouchListener(new RecyclerItemClickListener(getApplicationContext(), nomsHabitations,
                 new RecyclerItemClickListener.OnItemClickListener() {
                     @Override
@@ -91,6 +96,9 @@ public class EditActivity extends AppCompatActivity {
 
     }
 
+    /**
+     * Save data in SharedPreferences
+     */
     private void saveData() {
         SharedPreferences sharedPreferences = getSharedPreferences("shared preferences", MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit();
@@ -100,6 +108,9 @@ public class EditActivity extends AppCompatActivity {
         editor.apply();
     }
 
+    /**
+     * Load Stored Data
+     */
     private void loadData() {
         SharedPreferences sharedPreferences = getSharedPreferences("shared preferences", MODE_PRIVATE);
         Gson gson = new Gson();
@@ -112,6 +123,9 @@ public class EditActivity extends AppCompatActivity {
         }
     }
 
+    /**
+     * Initialise la recycler View avec l'adapter
+     */
     private void getInfos() {
         nomsHabitations.setLayoutManager(new LinearLayoutManager(this));
         adapter = new MainAdapter(habitationList);
