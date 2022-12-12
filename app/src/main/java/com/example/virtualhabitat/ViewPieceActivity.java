@@ -110,6 +110,11 @@ public class ViewPieceActivity extends AppCompatActivity {
 
     }
 
+    /**
+     *
+     * @param nomPiece
+     * @param dir
+     */
     private void setAcces(String nomPiece, int dir)
     {
         ArrayList<Acces> accesMur = getPiece(nomPiece).getAcces(dir);
@@ -121,19 +126,19 @@ public class ViewPieceActivity extends AppCompatActivity {
                 Button bouton = new Button(ViewPieceActivity.this.getApplicationContext());
 
                 ViewGroup.LayoutParams layoutParams = new ViewGroup.LayoutParams(
-                        ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
+                        ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
                 layoutParams.width = acces.getRect().width();
                 layoutParams.height = acces.getRect().height();
-                //bouton.setLayoutParams(layoutParams);
-                bouton.setWidth(layoutParams.width);
-                bouton.setHeight(layoutParams.height);
+                bouton.setLayoutParams(layoutParams);
+                bouton.setWidth(acces.getRect().width());
+                bouton.setHeight(acces.getRect().height());
                 bouton.setX(acces.getRect().left);
                 bouton.setY(acces.getRect().top);
                 bouton.setBackgroundColor(Color.BLUE);
                 bouton.setText(acces.getNextPiece());
                 bouton.setTextColor(Color.YELLOW);
 
-                bouton.setAlpha(0.1F);
+                bouton.setAlpha(0.08F);
                 bouton.setClickable(true);
 
                 buttonsMurs.add(bouton);
@@ -159,6 +164,9 @@ public class ViewPieceActivity extends AppCompatActivity {
         }
     }
 
+    /**
+     * Vide la liste des boutons et enlève les boutons déjà affichés
+     */
     public void removeAllAcces(){
         for(Button b: buttonsMurs){
             ((ViewGroup)b.getParent()).removeView(b);
@@ -167,7 +175,11 @@ public class ViewPieceActivity extends AppCompatActivity {
         buttonsMurs = new ArrayList<>();
     }
 
-
+    /**
+     * Retourne la pièce dont le nom est name
+     * @param name Nom de la pièce
+     * @return Retourne la pièce dont le nom est name
+     */
     public Piece getPiece(String name){
         for(Piece p: pieces){
             if (p.getName().equals(name)){
