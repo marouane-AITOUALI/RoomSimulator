@@ -24,6 +24,8 @@ public class SaveModel {
         return instance;
     }
     public void loadData(Context context, String fileName){
+        File file = new File(fileName);
+        if(file.exists()){
             Toast.makeText(context, "entré dans loadData", Toast.LENGTH_SHORT).show();
             SharedPreferences sharedPreferences = context.getSharedPreferences("jsonData", MODE_PRIVATE);
             Gson gson = new Gson();
@@ -38,7 +40,7 @@ public class SaveModel {
             }else{
                 GestionnairePieces.getInstance().setPieces(pieces);
             }
-
+        }
     }
 
 

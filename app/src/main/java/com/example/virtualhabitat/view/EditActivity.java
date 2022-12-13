@@ -33,11 +33,10 @@ public class EditActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit);
 
-        saveModel.loadData(EditActivity.this, getString(R.string.PREFERENCEFILE));
-        //saveModel.loadData(EditActivity.this, "donnees.json");
+        //saveModel.loadData(EditActivity.this, getString(R.string.PREFERENCEFILE));
 
         Button valider = (Button) findViewById(R.id.valider);
-        Button save = (Button) findViewById(R.id.save); 
+        Button save = (Button) findViewById(R.id.save);
 
         nomsHabitations = (RecyclerView) findViewById(R.id.textViewHabitation);
         nomsHabitations.setHasFixedSize(false);
@@ -67,6 +66,7 @@ public class EditActivity extends AppCompatActivity {
             }
             else{
                 habitationList.add(new Piece(nomHabitation.getText().toString()));
+
                 getInfos();
                 nomHabitation.setText("");
                 Toast.makeText(this, "Pièce crée avec succès",
@@ -76,7 +76,8 @@ public class EditActivity extends AppCompatActivity {
 
         // Save the model if case of exiting app
         save.setOnClickListener(view ->{
-            saveModel.saveData(EditActivity.this, getString(R.string.PREFERENCEFILE));
+            habitationList.clear();
+            //GestionnairePieces.getInstance().setPieces(new ArrayList<>());
             getInfos();
         });
 
@@ -100,38 +101,6 @@ public class EditActivity extends AppCompatActivity {
                 }));
 
     }
-
-
-        /**
-         * Save data in SharedPreferences
-         */
-        public void saveData() {
-            // assert habitationList != null: "Liste pieces vide";
-            Context context = EditActivity.this.getApplicationContext();
-            SharedPreferences sharedPreferences = context.getSharedPreferences("shared preferences",
-                    context.MODE_PRIVATE);
-            SharedPreferences.Editor editor = sharedPreferences.edit();
-            Gson gson = new Gson();
-            String json = gson.toJson(habitationList);
-            editor.putString(getString(R.string.PREFERENCEFILE), json);
-            editor.apply();
-        }
-
-        /**
-         * Load Stored Data
-         */
-        public void loadData() {
-            SharedPreferences sharedPreferences = getSharedPreferences("shared preferences", MODE_PRIVATE);
-            Gson gson = new Gson();
-            String json = sharedPreferences.getString("pieces", null);
-            Type type = new TypeToken<ArrayList<Piece>>() {}.getType();
-            habitationList = gson.fromJson(json, type);
-
-            if(habitationList == null){
-                habitationList = GestionnairePieces.getInstance().getPieces();
-            }
-        }
-
 
 
     /**

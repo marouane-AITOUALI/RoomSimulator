@@ -11,7 +11,7 @@
     <string name="editer">Edit</string>
     <string name="view">Visualization</string>
     <string name="hintNomPiece">Room name</string>
-    <string name="save">Save</string>
+    <string name="effacer">CLEAR</string>
     <string name="confirmAcces">Confirm</string>
     <string name="ajoutPorte">Add Door</string>
     <string name="imagePiece">Picture of the room</string>

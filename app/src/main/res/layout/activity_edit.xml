@@ -18,7 +18,7 @@
             app:layout_constraintStart_toEndOf="@+id/habitationName"
             android:layout_marginLeft="8dp" android:layout_marginStart="8dp"/>
     <Button
-            android:text="@string/save"
+            android:text="@string/effacer"
             android:textSize="11sp"
             android:layout_width="88dp"
             android:layout_height="48dp"

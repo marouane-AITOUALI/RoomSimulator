@@ -11,7 +11,7 @@
     <string name="editer">Éditer</string>
     <string name="view">Visualisation</string>
     <string name="hintNomPiece">Nom de la pièce</string>
-    <string name="save">Save</string>
+    <string name="effacer">EFFACER</string>
     <string name="confirmAcces">Confirmer</string>
     <string name="ajoutPorte">Ajouter Porte</string>
     <string name="imagePiece">Image de la pièce</string>
