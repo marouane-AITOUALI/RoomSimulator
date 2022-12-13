@@ -99,20 +99,24 @@ public class ItemModel extends AppCompatActivity {
         if(nord != null) {
             currentPiece.getMur("nord").getImageView().setImageBitmap(nord);
             imageNord.setImageBitmap(nord);
+            btnNord.setText("");
 
         }
         if(est != null){
             currentPiece.getMur("est").getImageView().setImageBitmap(est);
             imageEst.setImageBitmap(est);
+            btnEst.setText("");
 
         }
         if(currentPiece.getMur("sud").getBitmap() != null){
             currentPiece.getMur("sud").getImageView().setImageBitmap(sud);
             imageSud.setImageBitmap(sud);
+            btnSud.setText("");
         }
         if(ouest != null){
             currentPiece.getMur("ouest").getImageView().setImageBitmap(ouest);
             imageOuest.setImageBitmap(ouest);
+            btnOuest.setText("");
         }
 
 

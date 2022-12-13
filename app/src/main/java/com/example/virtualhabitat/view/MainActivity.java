@@ -1,23 +1,36 @@
 package com.example.virtualhabitat.view;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Button;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import com.example.virtualhabitat.R;
+import com.example.virtualhabitat.model.Piece;
+import com.example.virtualhabitat.model.SaveModel;
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
+import org.json.JSONException;
+
+import java.io.IOException;
+import java.lang.reflect.Type;
+import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
-
+    private ArrayList<Piece> pieces;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
+        //SaveModel saveModel = new SaveModel();
+        //saveModel.loadData(MainActivity.this, getString(R.string.PREFERENCEFILE));
 
         Button buttonCreation = (Button) findViewById(R.id.boutonEdit);
         Button buttonView = (Button) findViewById(R.id.boutonView);
@@ -64,4 +77,6 @@ public class MainActivity extends AppCompatActivity {
 
         }
     }
+
+
 }

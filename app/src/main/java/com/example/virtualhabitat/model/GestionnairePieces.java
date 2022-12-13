@@ -1,8 +1,6 @@
 package com.example.virtualhabitat.model;
 
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Iterator;
 
 public class GestionnairePieces {
 
@@ -40,4 +38,7 @@ public class GestionnairePieces {
         return pieces;
     }
 
+    public void setPieces(ArrayList<Piece> set){
+        pieces = set;
+    }
 }

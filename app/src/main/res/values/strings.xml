@@ -19,6 +19,7 @@
     <string name="flecheGauche">Flèche Gauche</string>
     <string name="flecheDroite">Flèche Droite</string>
     <string name="porte">Porte</string>
+    <string name="PREFERENCEFILE">com.example.virtualhabitat.PREFERENCE_FILE</string>
 
 
 </resources>

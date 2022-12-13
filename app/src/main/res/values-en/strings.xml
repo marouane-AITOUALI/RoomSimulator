@@ -19,4 +19,5 @@
     <string name="flecheGauche">Left Arrow</string>
     <string name="flecheDroite">Right Arrow</string>
     <string name="porte">Door</string>
+    <string name="PREFERENCEFILE">com.example.virtualhabitat.PREFERENCE_FILE</string>
 </resources>

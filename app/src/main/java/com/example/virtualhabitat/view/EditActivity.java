@@ -1,5 +1,6 @@
 package com.example.virtualhabitat.view;
 
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.view.View;
@@ -14,13 +15,14 @@ import com.example.virtualhabitat.R;
 import com.example.virtualhabitat.model.*;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
+import org.json.JSONException;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 
 public class EditActivity extends AppCompatActivity {
 
-
+    private SaveModel saveModel = SaveModel.getInstance();
     private RecyclerView nomsHabitations;
     private EditText nomHabitation;
     private MainAdapter adapter;
@@ -30,8 +32,9 @@ public class EditActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit);
-        
-        //loadData();
+
+        saveModel.loadData(EditActivity.this, getString(R.string.PREFERENCEFILE));
+        //saveModel.loadData(EditActivity.this, "donnees.json");
 
         Button valider = (Button) findViewById(R.id.valider);
         Button save = (Button) findViewById(R.id.save); 
@@ -73,7 +76,8 @@ public class EditActivity extends AppCompatActivity {
 
         // Save the model if case of exiting app
         save.setOnClickListener(view ->{
-            saveData();
+            saveModel.saveData(EditActivity.this, getString(R.string.PREFERENCEFILE));
+            getInfos();
         });
 
         /*
@@ -97,33 +101,38 @@ public class EditActivity extends AppCompatActivity {
 
     }
 
-    /**
-     * Save data in SharedPreferences
-     */
-    private void saveData() {
-        assert habitationList != null: "Liste pieces vide";
-        SharedPreferences sharedPreferences = getSharedPreferences("shared preferences", MODE_PRIVATE);
-        SharedPreferences.Editor editor = sharedPreferences.edit();
-        Gson gson = new Gson();
-        String json = gson.toJson(habitationList);
-        editor.putString("pieces", json);
-        editor.apply();
-    }
 
-    /**
-     * Load Stored Data
-     */
-    private void loadData() {
-        SharedPreferences sharedPreferences = getSharedPreferences("shared preferences", MODE_PRIVATE);
-        Gson gson = new Gson();
-        String json = sharedPreferences.getString("pieces", null);
-        Type type = new TypeToken<ArrayList<Piece>>() {}.getType();
-        habitationList = gson.fromJson(json, type);
-
-        if(habitationList == null){
-            habitationList = GestionnairePieces.getInstance().getPieces();
+        /**
+         * Save data in SharedPreferences
+         */
+        public void saveData() {
+            // assert habitationList != null: "Liste pieces vide";
+            Context context = EditActivity.this.getApplicationContext();
+            SharedPreferences sharedPreferences = context.getSharedPreferences("shared preferences",
+                    context.MODE_PRIVATE);
+            SharedPreferences.Editor editor = sharedPreferences.edit();
+            Gson gson = new Gson();
+            String json = gson.toJson(habitationList);
+            editor.putString(getString(R.string.PREFERENCEFILE), json);
+            editor.apply();
         }
-    }
+
+        /**
+         * Load Stored Data
+         */
+        public void loadData() {
+            SharedPreferences sharedPreferences = getSharedPreferences("shared preferences", MODE_PRIVATE);
+            Gson gson = new Gson();
+            String json = sharedPreferences.getString("pieces", null);
+            Type type = new TypeToken<ArrayList<Piece>>() {}.getType();
+            habitationList = gson.fromJson(json, type);
+
+            if(habitationList == null){
+                habitationList = GestionnairePieces.getInstance().getPieces();
+            }
+        }
+
+
 
     /**
      * Initialise la recycler View avec l'adapter
