@@ -1,4 +1,4 @@
-package com.example.virtualhabitat;
+package com.example.virtualhabitat.view;
 
 import android.content.Intent;
 import android.view.Menu;
@@ -6,10 +6,7 @@ import android.view.MenuItem;
 import android.widget.Button;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
-import com.example.virtualhabitat.model.Habitation;
-import com.example.virtualhabitat.model.Piece;
-
-import java.util.ArrayList;
+import com.example.virtualhabitat.R;
 
 public class MainActivity extends AppCompatActivity {
 

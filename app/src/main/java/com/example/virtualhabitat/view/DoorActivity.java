@@ -1,4 +1,4 @@
-package com.example.virtualhabitat;
+package com.example.virtualhabitat.view;
 
 import android.graphics.PixelFormat;
 import android.graphics.Rect;
@@ -13,6 +13,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import com.example.virtualhabitat.R;
 import com.example.virtualhabitat.model.*;
 
 import java.util.ArrayList;

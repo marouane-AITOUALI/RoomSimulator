@@ -1,4 +1,4 @@
-package com.example.virtualhabitat;
+package com.example.virtualhabitat.view;
 
 import android.content.Intent;
 import android.view.View;
@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import com.example.virtualhabitat.R;
 import com.example.virtualhabitat.model.GestionnairePieces;
 import com.example.virtualhabitat.model.MainAdapter;
 import com.example.virtualhabitat.model.Piece;

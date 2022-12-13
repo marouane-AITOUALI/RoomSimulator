@@ -1,4 +1,4 @@
-package com.example.virtualhabitat;
+package com.example.virtualhabitat.view;
 
 import android.content.Intent;
 import android.graphics.Bitmap;
@@ -7,6 +7,7 @@ import android.provider.MediaStore;
 import android.widget.*;
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.appcompat.app.AppCompatActivity;
+import com.example.virtualhabitat.R;
 import com.example.virtualhabitat.model.GestionnairePieces;
 import com.example.virtualhabitat.model.Piece;
 

@@ -24,22 +24,22 @@
             android:theme="@style/Theme.VirtualHabitat"
             tools:targetApi="31">
         <activity
-                android:name=".ViewPieceActivity"
+                android:name=".view.ViewPieceActivity"
                 android:exported="false"/>
         <activity
-                android:name=".DoorActivity"
+                android:name=".view.DoorActivity"
                 android:exported="false"/>
         <activity
-                android:name=".ItemModel"
+                android:name=".view.ItemModel"
                 android:exported="false"/>
         <activity
-                android:name=".VisualisationActivity"
+                android:name=".view.VisualisationActivity"
                 android:exported="false"/>
         <activity
-                android:name=".EditActivity"
+                android:name=".view.EditActivity"
                 android:exported="false"/>
         <activity
-                android:name=".MainActivity"
+                android:name=".view.MainActivity"
                 android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>

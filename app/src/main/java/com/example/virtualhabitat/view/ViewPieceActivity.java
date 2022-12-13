@@ -1,4 +1,4 @@
-package com.example.virtualhabitat;
+package com.example.virtualhabitat.view;
 
 import android.graphics.Color;
 import android.view.ViewGroup;
@@ -7,6 +7,7 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
+import com.example.virtualhabitat.R;
 import com.example.virtualhabitat.model.Acces;
 import com.example.virtualhabitat.model.GestionnairePieces;
 import com.example.virtualhabitat.model.Piece;

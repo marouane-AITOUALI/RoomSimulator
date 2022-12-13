@@ -6,7 +6,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/background"
-        tools:context=".EditActivity">
+        tools:context=".view.EditActivity">
     <Button
             android:text="@string/enter"
             android:layout_width="88dp"
