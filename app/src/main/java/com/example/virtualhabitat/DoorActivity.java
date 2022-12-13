@@ -1,9 +1,7 @@
 package com.example.virtualhabitat;
 
-import android.graphics.Color;
 import android.graphics.PixelFormat;
 import android.graphics.Rect;
-import android.util.Log;
 import android.view.MotionEvent;
 import android.view.SurfaceView;
 import android.view.View;
@@ -11,7 +9,6 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Toast;
-import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -31,7 +28,7 @@ public class DoorActivity extends AppCompatActivity {
     private SurfaceView surfaceview;
     private Rect rect;
     private int lastITemSelected=-1;
-    private myCanvas canvas;
+    private MyCanvas canvas;
     private int dir;
     private MainAdapter adapter;
     //private CanvasVie
@@ -92,7 +89,7 @@ public class DoorActivity extends AppCompatActivity {
                     rect.sort();
 
                     // myCanvas View model
-                    canvas = new myCanvas(DoorActivity.this, surfaceview, rect);
+                    canvas = new MyCanvas(DoorActivity.this, surfaceview, rect);
 
 
 

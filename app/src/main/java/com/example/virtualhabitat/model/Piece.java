@@ -18,7 +18,7 @@ public class Piece {
     /**
      * Rajoute les quatres murs initiaux de la pièce
      */
-    private void ajoutMurInitial() {
+    public void ajoutMurInitial() {
         murs.add(new Mur("nord"));
         murs.add(new Mur("sud"));
         murs.add(new Mur("est"));

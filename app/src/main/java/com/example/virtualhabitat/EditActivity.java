@@ -100,6 +100,7 @@ public class EditActivity extends AppCompatActivity {
      * Save data in SharedPreferences
      */
     private void saveData() {
+        assert habitationList != null: "Liste pieces vide";
         SharedPreferences sharedPreferences = getSharedPreferences("shared preferences", MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit();
         Gson gson = new Gson();

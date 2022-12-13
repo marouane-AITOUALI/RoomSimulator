@@ -5,7 +5,7 @@ import android.graphics.*;
 import android.view.SurfaceView;
 import android.view.View;
 
-public class myCanvas extends View {
+public class MyCanvas extends View {
 
 
     private SurfaceView surfaceView;
@@ -18,11 +18,11 @@ public class myCanvas extends View {
      * @param surfaceView La surface view sur laquelle on va dessiner
      * @param rect Le rectangle à dessiner
      */
-    public myCanvas(Context context, SurfaceView surfaceView, Rect rect) {
+    public MyCanvas(Context context, SurfaceView surfaceView, Rect rect) {
         super(context);
         rectangle = rect;
         this.surfaceView = surfaceView;
-        init();
+        initPaint();
 
     }
 
@@ -30,7 +30,7 @@ public class myCanvas extends View {
     /**
      * Initialisation de paint et de ses attributs
      */
-    private void init() {
+    private void initPaint() {
         paint = new Paint();
         paint.setStyle(Paint.Style.STROKE);
         paint.setAntiAlias(true);
